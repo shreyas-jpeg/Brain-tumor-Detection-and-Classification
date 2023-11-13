@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="hero-slide owl-carousel site-blocks-cover">
+      <div class="intro-section" style="background-image: url({% static 'images/hero_1.jpg' %}); background-size: 800px 400px;">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                <h1>Brain Tumor Classification: InceptionResNet</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-section" style="background-image: url({% static 'images/hero_2.jpg' %}); background-size: 800px 400px;">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                <h1>Brain Tumor Classification: InceptionResNet</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-lg-10 mb-5">
+            <h2 class="section-title-underline mb-5">
+              <span>What is Brain Tumor?</span>
+            </h2>
+              <p>A brain tumor is a mass or growth of abnormal cells in your brain. Many different types of
+                  brain tumors exist. Some brain tumors are noncancerous (benign), and some brain tumors are
+                  cancerous (malignant). Brain tumors can begin in your brain (primary brain tumors), or
+                  cancer can begin in other parts of your body and spread to your brain (secondary, or
+                  metastatic, brain tumors).
+                  <br><br>
+                  How quickly a brain tumor grows can vary greatly. The growth rate as well as location
+                  of a brain tumor determines how it will affect the function of your nervous system.
+                  <br><br>
+                  Brain tumor treatment options depend on the type of brain tumor you have, as well as
+                  its size and location
+                  <br><br>
+                  Many different types of primary brain tumors exist. Each gets its name from the type of
+                  cells involved. Primarly, we have considered given tumor classes to build this application:
+                  <br>
+
+                  <ul>
+                    <li><b>Gliomas - </b> These tumors begin in the brain or spinal cord and include astrocytomas,
+                            ependymomas, glioblastomas, oligoastrocytomas and oligodendrogliomas</li>
+                    <li><b>Meningiomas - </b> A meningioma is a tumor that arises from the membranes that surround
+                            your brain and spinal cord (meninges). Most meningiomas are noncancerous.</li>
+                    <li><b>Pituitary adenomas - </b> These are mostly benign tumors that develop in the pituitary
+                        gland at the base of the brain. These tumors can affect the pituitary hormones with effects
+                        throughout the body.</li>
+                  </ul>
+              </p>
+
+          </div>
+         </div>
+        </div>
+      </div>
+
+
+        <!-- // 05 - Block -->
+    <div class="site-section ftco-subscribe-1" style="background-image: url({% static 'images/bg_1.jpg' %})">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h2>Subscribe to us!</h2>
+          </div>
+          <div class="col-lg-5">
+            <form action="" class="d-flex">
+              <input type="text" class="rounded form-control mr-2 py-3" placeholder="Enter your email">
+              <button class="btn btn-primary rounded py-3 px-4" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+  <!-- .site-wrap -->
+
+	{% endblock %}

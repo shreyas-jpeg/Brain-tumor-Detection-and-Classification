@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url({% static 'images/bg_1.jpg' %})">
+        <div class="container">
+          <div class="row align-items-end">
+            <div class="col-lg-7">
+              <h2 class="mb-0">Laboratory Report</h2>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="custom-breadcrumns border-bottom">
+      <div class="container">
+        <a href="index.html">Home</a>
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+        <span class="current">Laboratory Report</span>
+      </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            {% if items %}
+                {% for item in items %}
+                    <div align="center">
+                        <h3><u>Medical Incident Report</u></h3><br>
+                        <h4>Brain MRI Scan Report</h4><br>
+                    </div>
+                    <div align="right">
+                        <b>Date: {{ item.upload_datetime }}</b>
+                    </div>
+                    <div>
+                        <b>Patient Id: </b>{{ item.pid }} <br>
+                        <b>Patient Name: </b>{{ item.patient_name }} <br>
+                        <b>Patient Age:  </b>{{ item.page }} <br><br>
+                    </div>
+
+                    <div class="row" align="left">
+                        <div class="col-sm-6">
+                            <b>Brain MRI Prediction Result:  </b>{{ item.brain_prediction }} <br>
+                            <b>Brain MRI Prediction Score:   </b>{{ item.brain_score }} <br><br>
+                            <img src="{{ item.brainpics.url }}" class="img-fluid" alt="Responsive image"><br>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

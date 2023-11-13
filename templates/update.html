@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4"
+         style="background-image: url({% static 'images/bg_1.jpg' %})">
+        <div class="container">
+          <div class="row align-items-end">
+            <div class="col-lg-7">
+              <h2 class="mb-0">Upload Images</h2>
+            </div>
+          </div>
+        </div>
+      </div> 
+    
+
+    <div class="custom-breadcrumns border-bottom">
+      <div class="container">
+        <a href="index.html">Home</a>
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+        <span class="current">Upload Images</span>
+      </div>
+    </div>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-warning alert-dismissable" role="alert">
+                <button class="close" data-dismiss="alert">
+                  <small><sup>x</sup></small>
+                </button>
+                {{ message }}
+              </div><br/>
+            {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            <h2>Upload Patient Details for Prediction</h2>
+            <br>
+            <p>Please upload image, remember to fill-in all the details to generate the prediction.
+            </p>
+            <br>
+            <form action="{% url 'update_model_data' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if items %}
+                    {% for item in items %}
+                    <div class="form-group row">
+                        <label for="rid" class="col-sm-2 col-form-label"> Registraion Id</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="rid" id="rid" value="{{ item.id }}" readonly
+                                             style="margin-bottom:3%;"><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pid" class="col-sm-2 col-form-label">Patient Id</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="pid" id="pid" value="{{ item.pid }}" readonly disabled
+                                             style="margin-bottom:3%;"><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pname" class="col-sm-2 col-form-label">Patient Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="pname" id="pname" value="{{ item.patient_name }}" readonly disabled
+                                             style="margin-bottom:3%;"><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="page" class="col-sm-2 col-form-label">Patient Age</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="page" id="page" value="{{ item.page }}" readonly disabled
+                                            style="margin-bottom:3%;"><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="brainpics" class="col-sm-2 col-form-label">Brain MRI</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="brainpics"  id="brainpics" accept="image/*" required style="width: 50%; padding: 2px 2px;
+                        margin: 2px 2px; box-sizing: border-box; border-style: solid; margin-bottom:3%;"><br>
+                        </div>
+                    </div>
+                        {% endfor %}
+                {% endif %}
+                <input type="submit" value="Submit">
+              </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}

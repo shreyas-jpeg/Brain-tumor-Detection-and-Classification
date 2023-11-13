@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url({% static 'images/bg_1.jpg' %})">
+        <div class="container">
+          <div class="row align-items-end">
+            <div class="col-lg-7">
+              <h2 class="mb-0">Reports</h2>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="custom-breadcrumns border-bottom">
+      <div class="container">
+        <a href="index.html">Home</a>
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+        <span class="current">Reports</span>
+      </div>
+    </div>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-warning alert-dismissable" role="alert">
+                <button class="close" data-dismiss="alert">
+                  <small><sup>x</sup></small>
+                </button>
+                {{ message }}
+              </div><br/>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            <h2>Reports</h2> <br>
+            <table class="table table-striped table-bordered table-sm">
+                <thead class="thead-dark">
+                    <tr align="center">
+                        <th scope="col">Patient Id</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Upload Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if image_tbl %}
+                          {% for term in image_tbl %}
+                            <tr>
+                                <td align="center"> {{ term.pid }} </td>
+                                <td align="center"> {{ term.patient_name }} </td>
+                                <td align="center"> {{ term.page }} </td>
+                                <td> {{ term.upload_datetime }} </td>
+                                <td align="center">
+                                    <a href="{% url 'rerun_prediction' term.id %}"
+                                       class="btn btn-primary">Re-run Prediction</a>
+                                    <a href="{% url 'run_report' term.id %}"  class="btn btn-primary">Show Results</a>
+                                    <a href="{% url 'update_pics' term.id %}" class="btn btn-primary">Update Data</a>
+                                    <a href="{% url 'delete_pics' term.id %}" class="btn btn-primary">Delete Data</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}
