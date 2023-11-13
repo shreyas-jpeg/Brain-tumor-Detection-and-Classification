@@ -10,5 +10,5 @@ TensorFlow (Inception Resnet V2 model)
 Machine Learning Techniques:
 Transfer Learning
 
-#Result
+# Results
 The Inception Resnet V2 model achieved an impressive accuracy rate of 94.86% through the application of transfer learning.
